@@ -1,22 +1,56 @@
-/** ---- DO NOT MODIFY THIS FILE ---- **/
+// requires
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
+var port = 5000;
 
-var treats = require('./routes/treats');
+var config = {
+  database: "chi", // name of your database
+  host: "localhost", //where is your database?
+  port: 5432, // port for the database
+  max: 10, // how many connections at one time
+  idleTimeoutMillis: 30000 //30 seconds to connect
+};
 
+var pool = new pg.Pool(config);
+
+// uses
 app.use(express.static('./server/public'));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded( { extended: true } ) );
 
-app.use('/treats', treats);
+// spin up server
+app.listen(port, function (req, res) {
+  console.log('Now listening on:', port);
+  console.log('Go to localhost:5000 to see site.');
+  console.log('Ctrl+C shuts down server.');
+});
 
+// base url
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '/public', '/views', 'index.html'));
 });
 
-app.listen(5000, function (req, res) {
-  console.log('Now listening on port 5000.');
-  console.log('Go to localhost:5000 to see site.');
-  console.log('Ctrl+C shuts down server.');
-});
+// GET /treats
+router.get('/treats', function (req, res) {
+  pool.connect(function (err, client, done) {
+    if (err) {
+      console.log('Error connecting to the DB', err);
+      res.sendStatus(500);
+      done();
+      return;
+    } // end error
+    else{
+      /** ---- YOUR CODE BELOW ---- **/
+      // Add code here to get treats from the treatDB
+    } // end no error
+  }); // end pool connect
+}); // end get /treats
+
+/** ---- YOUR CODE BELOW ---- **/
+
+// POST /treats
+
+// PUT /treats/<id>
+
+// DELETE /treats/<id>
