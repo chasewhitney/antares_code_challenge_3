@@ -43,7 +43,7 @@ Before we can launch, we at least need to be able to view and add new treats. Fi
 }
 ```
 
-*Note:* you should be able to test by entering the following in the Input fields:
+*Note:* you should be able to test by entering the following in the Input fields on the page and hitting "Submit":
 
 - name: "Ice Cream"
 - description: "Cold, yummy, and  belongs in my tummy!"
