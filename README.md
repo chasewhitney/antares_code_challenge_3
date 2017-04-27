@@ -39,7 +39,7 @@ Before we can launch, we at least need to be able to view and add new treats. Fi
 {
 	name: "NAMEGOESHERE",
 	description: "DESCRIPTIONGOESHERE",
-	pic: "URLGOESHERE
+	pic: "URLGOESHERE"
 }
 ```
 
