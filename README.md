@@ -28,19 +28,19 @@ VALUES ('Cupcake', 'A delicious cupcake', '/assets/cupcake.jpg'),
 
 ## TODO
 
-### Baseline (Base Mode)
-Before we can launch, we at least need to be able to view and add new treats. Finish implementing the following routes in the `routes/treats.js` file:
+### Base Mode
+Before we can launch, we at least need to be able to view and add new treats. Finish implementing the following routes in the `server/app.js` file:
 
-* `GET /treats` returns a list of potential treats (e.g. cupcakes, goldfish, etc) and their image URLs
+* GET call to `/treats` should return a list of potential treats (e.g. cupcakes, goldfish, etc) and their image URLs
 
-* `POST /treats` expects a treat name, description and link to a url image
+* POST  call to `/treats` expects a treat name, description and link to a url image
 
-### Special Sauce (Hard Mode)
+### Hard Mode
 Our client will be ecstatic if we can also deliver the ability to update and delete, but consider these "nice-to-haves".
 
-* `PUT /treats/:id` updates the treat description
+* PUT to `/treats/:id` updates the treat description
 
-### Eye of the Tiger (Pro Mode)
+### Pro Mode
 **If you're feeling fancy and have some time to spare**, try this one
 
-* `DELETE /treats/:id` deletes a treat
+* DELETE to `/treats/:id` deletes a treat
