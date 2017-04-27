@@ -44,7 +44,6 @@ app.get('/treats', function (req, res) {
     else{
       /** ---- YOUR CODE BELOW ---- **/
       // Add code here to get treats from the treatDB
-      console.log( 'connected to db' );
     } // end no error
   }); // end pool connect
 }); // end get /treats

@@ -31,9 +31,23 @@ VALUES ('Cupcake', 'A delicious cupcake', '/assets/cupcake.jpg'),
 ### Base Mode
 Before we can launch, we at least need to be able to view and add new treats. Finish implementing the following routes in the `server/app.js` file:
 
-* GET call to `/treats` should return a list of potential treats (e.g. cupcakes, goldfish, etc) and their image URLs
+* GET call to `/treats` should return an array of treats (e.g. cupcakes, goldfish, etc) and their image URLs
 
-* POST  call to `/treats` expects a treat name, description and link to a url image
+* POST  call to `/treats` expects treat name, description and link to a url image in an object as follows:
+
+```javascript
+{
+	name: "NAMEGOESHERE",
+	description: "DESCRIPTIONGOESHERE",
+	pic: "URLGOESHERE
+}
+```
+
+*Note:* you should be able to test by entering the following in the Input fields:
+
+- name: "Ice Cream"
+- description: "Cold, yummy, and  belongs in my tummy!"
+- pic: "/assets/icecream.jpg"
 
 ### Hard Mode
 Our client will be ecstatic if we can also deliver the ability to update and delete, but consider these "nice-to-haves".
