@@ -1,8 +1,8 @@
 // requires
-var express = require('express');
+var express = require( 'express' );
 var app = express();
-var bodyParser = require('body-parser');
-var path = require('path');
+var bodyParser = require( 'body-parser' );
+var path = require( 'path' );
 var pg = require( 'pg' );
 var port = 5000;
 
@@ -14,11 +14,11 @@ var config = {
   idleTimeoutMillis: 30000 //30 seconds to connect
 };
 
-var pool = new pg.Pool(config);
+var pool = new pg.Pool( config );
 
 // uses
-app.use(express.static('./server/public'));
-app.use(bodyParser.urlencoded( { extended: true } ) );
+app.use( express.static( './server/public' ) );
+app.use( bodyParser.urlencoded( { extended: true } ) );
 
 // spin up server
 app.listen(port, function (req, res) {
@@ -37,13 +37,14 @@ app.get('/treats', function (req, res) {
   pool.connect(function (err, client, done) {
     if (err) {
       console.log('Error connecting to the DB', err);
-      res.sendStatus(500);
+      res.sendStatus( 500 );
       done();
       return;
     } // end error
     else{
       /** ---- YOUR CODE BELOW ---- **/
       // Add code here to get treats from the treatDB
+      console.log( 'connected to db' );
     } // end no error
   }); // end pool connect
 }); // end get /treats
