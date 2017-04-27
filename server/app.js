@@ -3,10 +3,11 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
+var pg = require( 'pg' );
 var port = 5000;
 
 var config = {
-  database: "chi", // name of your database
+  database: "treatsDB", // name of your database
   host: "localhost", //where is your database?
   port: 5432, // port for the database
   max: 10, // how many connections at one time
@@ -32,7 +33,7 @@ app.get('/', function (req, res) {
 });
 
 // GET /treats
-router.get('/treats', function (req, res) {
+app.get('/treats', function (req, res) {
   pool.connect(function (err, client, done) {
     if (err) {
       console.log('Error connecting to the DB', err);
