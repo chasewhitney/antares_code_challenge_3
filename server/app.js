@@ -34,7 +34,7 @@ app.get('/', function (req, res) {
 
 // GET /treats
 app.get('/treats', function (req, res) {
-  pool.connect(function (err, client, done) {
+  pool.connect(function (err, connection, done) {
     if (err) {
       console.log('Error connecting to the DB', err);
       res.sendStatus( 500 );
