@@ -8,7 +8,7 @@ database. In fact, said developer even stubbed out most of your server-side code
 
 ## Database Setup
 
-Create a database called `treatDB` and create the following table in it.
+Create a database called `treatsDB` and create the following table in it.
 
 ```SQL
 CREATE TABLE treats (
