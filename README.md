@@ -54,6 +54,8 @@ Our client will be ecstatic if we can also deliver the ability to update and del
 
 * PUT to `/treats/:id` updates the treat description
 
+_note_: treat info can be found server-side in req.body
+
 ### Pro Mode
 **If you're feeling fancy and have some time to spare**, try this one
 
