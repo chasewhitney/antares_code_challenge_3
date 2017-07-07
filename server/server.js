@@ -16,14 +16,14 @@ var config = {
 
 var pool = new pg.Pool( config );
 
-// uses
+// middleware (don't change these)
 app.use( express.static( './server/public' ) );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 
 
 // GET /treats
 app.get('/treats', function (req, res) {
-  pool.connect(function (err, connection, done) {
+  pool.connect(function (err, client, done) {
     if (err) {
       console.log('Error connecting to the DB', err);
       res.sendStatus( 500 );
@@ -47,7 +47,7 @@ app.get('/treats', function (req, res) {
 // DELETE /treats/<id>
 
 
-// base url
+// index file
 app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, '/public', '/views', 'index.html'));
 });
