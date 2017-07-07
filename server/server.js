@@ -20,17 +20,6 @@ var pool = new pg.Pool( config );
 app.use( express.static( './server/public' ) );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 
-// spin up server
-app.listen(port, function (req, res) {
-  console.log('Now listening on:', port);
-  console.log('Go to localhost:5000 to see site.');
-  console.log('Ctrl+C shuts down server.');
-});
-
-// base url
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '/public', '/views', 'index.html'));
-});
 
 // GET /treats
 app.get('/treats', function (req, res) {
@@ -41,9 +30,10 @@ app.get('/treats', function (req, res) {
       done();
       return;
     } // end error
-    else{
+    else {
       /** ---- YOUR CODE BELOW ---- **/
       // Add code here to get treats from the treatDB
+
     } // end no error
   }); // end pool connect
 }); // end get /treats
@@ -55,3 +45,14 @@ app.get('/treats', function (req, res) {
 // PUT /treats/<id>
 
 // DELETE /treats/<id>
+
+
+// base url
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, '/public', '/views', 'index.html'));
+});
+
+// spin up server
+app.listen(port, function (req, res) {
+  console.log('Now listening on:', port);
+});
