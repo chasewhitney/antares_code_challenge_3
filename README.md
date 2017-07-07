@@ -1,4 +1,4 @@
-# Code Challenge - Week 4 (SQL Databases)
+# Code Challenge 3 - SQL Databases
 
 ## Overview
 
