@@ -17,13 +17,12 @@ var config = {
 var pool = new pg.Pool( config );
 
 // middleware (don't change these)
-app.use( express.static( './server/public' ) );
 app.use( bodyParser.urlencoded( { extended: true } ) );
 
 
 // GET /treats
 app.get('/treats', function (req, res) {
-  pool.connect(function (err, client, done) {
+  pool.connect(function (err, db, done) {
     if (err) {
       console.log('Error connecting to the DB', err);
       res.sendStatus( 500 );
@@ -49,7 +48,8 @@ app.get('/treats', function (req, res) {
 
 // index file
 app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, '/public', '/views', 'index.html'));
+  var file = req.params[0] || 'views/index.html';
+  res.sendFile(path.join(__dirname, '/public', file));
 });
 
 // spin up server
