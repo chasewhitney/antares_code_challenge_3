@@ -29,7 +29,7 @@ VALUES ('Cupcake', 'A delicious cupcake', '/assets/cupcake.jpg'),
 ## TODO
 
 ### Base Mode
-Before we can launch, we at least need to be able to view and add new treats. Finish implementing the following routes in the `server/app.js` file:
+Before we can launch, we at least need to be able to view and add new treats. Finish implementing the following routes in the `server/routes/treats.js` file:
 
 * GET call to `/treats` should return an array of treats (e.g. cupcakes, goldfish, etc) and their image URLs
 
