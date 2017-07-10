@@ -88,9 +88,9 @@ router.post('/', function (req, res) {
 
 router.put('/:id', function (req, res) {
   var treat = req.body;
-  var treatId = req.params.id;
+  treat.id = req.params.id;
   console.log(treat);
-  console.log(treatId);
+  console.log(treat.id);
   pool.connect(function (err, db, done) {
     if (err) {
       console.log('Error connecting to the DB', err);
@@ -106,7 +106,7 @@ router.put('/:id', function (req, res) {
       // Now we're going to GET things from the db
       var queryText = 'UPDATE treats SET name = $1, description = $2, pic = $3 WHERE id = $4;';
       // errorMakingQuery is a bool, result is an object
-      db.query(queryText,[treat.name, treat.description, treat.pic, treatId], function(errorMakingQuery, result){
+      db.query(queryText,[treat.name, treat.description, treat.pic, treat.id], function(errorMakingQuery, result){
         done();
         if(errorMakingQuery) {
           console.log('Attempted to query with', queryText);
